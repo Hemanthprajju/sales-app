@@ -1,0 +1,11 @@
+.contactBox {
+  padding: 32px;
+  box-shadow: 1px 1px 9px gray;
+  border-radius: 6px;
+}
+.full-height {
+  min-height: calc(100vh - 150px); /* Full viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

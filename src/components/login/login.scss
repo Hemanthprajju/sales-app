@@ -1,0 +1,40 @@
+.bg-color{
+    background-color: #cdcdcd52;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  img{
+        position: relative;
+        animation-name: example;
+        animation-duration: 4s;
+      @keyframes example {
+        0%   {left:0px; top:0px;}
+        20%  {left:200px; top:0px;}
+        100% {left:0px; top:0px;}
+      }
+  }
+  .login-box {
+    width: 500px;
+    padding: 30px;
+    background-color: white;
+    box-shadow: 
+    1px 1px 5px rgba(0, 0, 0, 0.1), /* Top right shadow */
+    -1px -1px 5px rgba(0, 0, 0, 0.1); /* Bottom left shadow */
+    border-radius: 5% 0;
+  }
+  #outlined-basic {
+    width: 100%;
+  }
+  .err-msg{
+    color: red;
+  }
+.MuiTextField-root{
+    transform: rotate(0deg);
+    width: 100% !important;
+  }
+}
+ 
