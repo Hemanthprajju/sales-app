@@ -13,9 +13,10 @@ import { createSalePerson } from '../../apis/api';
 interface FormDialogProps {
     open: boolean;
     onClose: () => void;
+    onCreated: () => void;   // 👈 add this
 }
 
-const FormDialog: React.FC<FormDialogProps> = ({ open, onClose }) => {
+const FormDialog: React.FC<FormDialogProps> = ({ open, onClose, onCreated }) => {
     const {
         register,
         handleSubmit,
@@ -23,22 +24,23 @@ const FormDialog: React.FC<FormDialogProps> = ({ open, onClose }) => {
         reset,
     } = useForm();
 
-  
-        const createSales = async (data: any) => {
-            try {
-                await createSalePerson(data);
-                reset();
-                onClose(); 
 
-            } catch (error) {
-                console.error('Error deleting sale:', error);
-            }
-        };
-      
+    const createSales = async (data: any) => {
+        try {
+            await createSalePerson(data);
+            reset();
+            onClose();
+            onCreated();
+
+        } catch (error) {
+            console.error('Error deleting sale:', error);
+        }
+    };
+
 
 
     return (
-        <Dialog open={open} onClose={onClose}>  
+        <Dialog open={open} onClose={onClose}>
             <DialogTitle>Subscribe</DialogTitle>
             <DialogContent sx={{ paddingBottom: 0 }}>
 
@@ -51,7 +53,7 @@ const FormDialog: React.FC<FormDialogProps> = ({ open, onClose }) => {
                             variant="standard"
                             {...register("firstName", { required: "First Name is required" })}
                             error={!!errors.firstName}
-                            
+
                         />
                         <TextField
                             label="Last Name"
@@ -60,7 +62,7 @@ const FormDialog: React.FC<FormDialogProps> = ({ open, onClose }) => {
                             variant="standard"
                             {...register("lastName", { required: "Last Name is required" })}
                             error={!!errors.lastName}
-                            
+
                         />
                         <TextField
                             label="Phone Number"
@@ -76,7 +78,7 @@ const FormDialog: React.FC<FormDialogProps> = ({ open, onClose }) => {
                                 },
                             })}
                             error={!!errors.phoneNumber}
-                            
+
                         />
                         <TextField
                             label="Email Address"
@@ -92,7 +94,7 @@ const FormDialog: React.FC<FormDialogProps> = ({ open, onClose }) => {
                                 },
                             })}
                             error={!!errors.email}
-                            
+
                         />
                         <TextField
                             label="Years of Experience"
@@ -105,7 +107,7 @@ const FormDialog: React.FC<FormDialogProps> = ({ open, onClose }) => {
                                 min: { value: 0, message: "Minimum is 0" },
                             })}
                             error={!!errors.noOfExperience}
-                            
+
                         />
                         <TextField
                             label="Branch Name"
@@ -114,7 +116,7 @@ const FormDialog: React.FC<FormDialogProps> = ({ open, onClose }) => {
                             variant="standard"
                             {...register("branchName", { required: "Branch Name is required" })}
                             error={!!errors.branchName}
-                            
+
                         />
                         <TextField
                             label="Branch Address"
@@ -125,7 +127,7 @@ const FormDialog: React.FC<FormDialogProps> = ({ open, onClose }) => {
                                 required: "Branch Address is required",
                             })}
                             error={!!errors.branchAddress}
-                            
+
                         />
                     </DialogContent>
                     <DialogActions>
