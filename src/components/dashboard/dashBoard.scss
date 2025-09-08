@@ -2,15 +2,19 @@
   position: relative;
 }
 .myBanner {
+  box-shadow: 1px 1px 20px;
   width: 100%;
 }
 .titleName {
-    position: absolute;
-    bottom: 0px;
-    right: 150px;
-    font-family: cursive;
-    font-weight: 600;
+  position: absolute;
+  bottom: 0px;
+  right: 150px;
+  font-family: cursive;
+  font-weight: 600;
 }
-.salesImg{
-    width: 100%;
+.salesImg {
+  width: 100%;
+  &:hover {
+    box-shadow: 1px 1px 20px;
+  }
 }

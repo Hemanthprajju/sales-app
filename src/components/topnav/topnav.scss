@@ -1,15 +1,16 @@
-.navigation{
+.navigation {
   background: white;
   position: sticky;
   padding: 6px 16px 0 16px;
   z-index: 1;
   top: 0;
+  box-shadow: 1px 1px 20px;
 }
 .top_nav {
   display: flex;
   justify-content: space-between;
   .image_logo {
-    width: 40px;
+    width: 46px;
   }
   .btn-primary {
     margin: 10px;

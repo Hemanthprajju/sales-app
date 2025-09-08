@@ -71,20 +71,20 @@ export default function BasicTabs() {
     return (
         <div className='navigation'>
             <Box className="top_nav" sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <div>
-                <img className='image_logo' src={exampleImage} alt='Logo' />
-            </div>
-            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-                <Tab label="Home" value={0} {...a11yProps(0)} />
-                <Tab label="Sales" value={1} {...a11yProps(1)} />
-                <Tab label="Customer" value={2} {...a11yProps(2)} />
-                <Tab label="Purchase" value={3} {...a11yProps(3)} />
+                <div >
+                    <img className='image_logo' src={exampleImage} alt='Logo' />
+                </div>
+                <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+                    <Tab label="Home" value={0} {...a11yProps(0)} />
+                    <Tab label="Sales" value={1} {...a11yProps(1)} />
+                    <Tab label="Customer" value={2} {...a11yProps(2)} />
+                    <Tab label="Purchase" value={3} {...a11yProps(3)} />
                     <Tab label="Contact Us" value={4} {...a11yProps(4)} />
-            </Tabs>
+                </Tabs>
                 <Button variant="text" onClick={logOut}>Log out</Button>
-        </Box>  
+            </Box>
         </div>
-   
-      
+
+
     );
 }

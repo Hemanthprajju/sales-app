@@ -1,17 +1,22 @@
-.bg_color{
-    background-color: black;
+.bg_color {
+  background-color: black;
+  color: white;
+  a {
+    text-decoration: none;
     color: white;
-           a{
-            text-decoration: none;
-            color: white;
-        }
-    .remove_style{
-        list-style: none;
-        padding: 0;
- 
-    }
-    pre {
+  }
+  .remove_style {
+    list-style: none;
+    padding: 0;
+  }
+  pre {
     white-space: nowrap;
-}
+  }
+  .social_icons svg {
+    transition: transform 0.3s ease;
+  }
 
+  .social_icons:hover svg {
+    transform: scale(1.3);
+  }
 }

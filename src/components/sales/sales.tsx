@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { styled } from '@mui/material/styles';
 import { deleteSalePerson, getSalesList } from '../../apis/api';
-import salesBanner from '../../assets/sales/Hemanth Kumar S (3).png'
+import salesBanner from '/sales_banner.png'
 import './sale.scss'
 import { Add } from '@mui/icons-material';
 import FormDialog from '../../components/create-sales/create-sale'; // update path if needed
@@ -33,18 +33,16 @@ const Sales: React.FC = () => {
             border: 0,
         },
     }));
-
+    const fetchData = async () => {
+        try {
+            const response = await getSalesList(10, 0); // Adjust the limit and skip as needed
+            setSalesData(response.list); // Assuming the data is in response.data
+            console.log('response.list', response.list)
+        } catch (error) {
+            console.error("Error fetching sales data", error);
+        }
+    };
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await getSalesList(10, 0); // Adjust the limit and skip as needed
-                setSalesData(response.list); // Assuming the data is in response.data
-                console.log('response.list', response.list)
-            } catch (error) {
-                console.error("Error fetching sales data", error);
-            }
-        };
-
         fetchData();
     }, []);
 
@@ -65,12 +63,12 @@ const Sales: React.FC = () => {
     return (
         <>
             <Topnav />
-            <FormDialog open={dialogOpen} onClose={handleClose}  />
+            <FormDialog open={dialogOpen} onClose={handleClose} onCreated={fetchData} />
 
             <div className='container-fluid p-0 banner'>
                 <img className='saleImage' src={salesBanner} alt="" />
                 <Button className='AddBtn' variant="outlined" color='success' startIcon={<Add />} onClick={handleOpen}>
-                Add SE</Button>
+                    Add SE</Button>
             </div>
             <div className='container-fluid p-0'>
                 < Paper sx={{ width: '100%', overflow: 'hidden' }}>
